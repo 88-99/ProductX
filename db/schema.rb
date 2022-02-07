@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_020329) do
+ActiveRecord::Schema.define(version: 2022_02_07_124615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,24 @@ ActiveRecord::Schema.define(version: 2022_02_02_020329) do
     t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
+  create_table "teams_clients", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_teams_clients_on_client_id"
+    t.index ["team_id"], name: "index_teams_clients_on_team_id"
+  end
+
+  create_table "teams_suppliers", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.bigint "supplier_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["supplier_id"], name: "index_teams_suppliers_on_supplier_id"
+    t.index ["team_id"], name: "index_teams_suppliers_on_team_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -176,4 +194,8 @@ ActiveRecord::Schema.define(version: 2022_02_02_020329) do
   add_foreign_key "sales", "clients"
   add_foreign_key "sales", "users"
   add_foreign_key "teams", "users"
+  add_foreign_key "teams_clients", "clients"
+  add_foreign_key "teams_clients", "teams"
+  add_foreign_key "teams_suppliers", "suppliers"
+  add_foreign_key "teams_suppliers", "teams"
 end
