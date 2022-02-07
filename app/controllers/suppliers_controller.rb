@@ -15,8 +15,8 @@ class SuppliersController < ApplicationController
   end
 
   def create
-    # @supplier = current_user.suppliers.build(supplier_params)
-    @supplier = Supplier.new(supplier_params)
+      @supplier = current_user.team.suppliers.build(supplier_params)
+    # @supplier = Supplier.new(supplier_params)
     # @supplier.user_id = current_user.id
     if @supplier.save
       redirect_to edit_supplier_path(@supplier.id), notice: "仕入先を登録しました！"
