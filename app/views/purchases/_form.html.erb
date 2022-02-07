@@ -22,14 +22,9 @@
     <%= form.date_field :date_at, placeholder: "仕入日" %>
   </div>
 
-  <div class="purchase_supplier_id">
-    <%= form.label :Supplier_ID %>
-    <%= form.text_field :supplier_id, placeholder: "supplier_id" %> <!-- パラメータでsupplier_idを渡すため。-->
-  </div>
-
   <div class="purchase_supplier_name">
-    <%#= form.label :purchase_supplier_name %>
-    <%#= form.text_field :supplier_id, id: :supplier_id, placeholder: "supplier_id" %>
+    <%= form.label :supplier_name %>
+    <%= form.collection_select(:supplier_id, Supplier.all, :id, :name, prompt: "選択してください") %>
   </div>
 
   <div class="purchase_inputter">
@@ -42,7 +37,7 @@
       <p>商品<%= "#{pc.index+1}" %></p>
     </strong>
 
-    <%= pc.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %>
+    <%= pc.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
 
     <div class="pc_quantity">
       <%= pc.label :個数 %>

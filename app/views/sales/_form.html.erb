@@ -22,14 +22,9 @@
     <%= form.date_field :date_at, placeholder: "売上日" %>
   </div>
 
-  <div class="sale_client_id">
-    <%= form.label :Client_ID %>
-    <%= form.text_field :client_id, placeholder: "client_id" %> <!-- パラメータでclient_idを渡すため。-->
-  </div>
-
   <div class="sale_client_name">
-    <%#= form.label :sale_client_name %>
-    <%#= form.text_field :client_id, id: :client_id, placeholder: "client_id" %>
+    <%= form.label :client_name %>
+    <%= form.collection_select(:client_id, Client.all, :id, :name, prompt: "選択してください") %>
   </div>
 
   <div class="sale_inputter">
@@ -42,7 +37,7 @@
       <p>商品<%= "#{sd.index+1}" %></p>
     </strong>
 
-    <%= sd.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %>
+    <%= sd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
 
     <div class="sd_quantity">
       <%= sd.label :個数 %>
