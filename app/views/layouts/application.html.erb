@@ -18,6 +18,7 @@
       <%= current_user.name %>
       <%= link_to "トップページ", root_path %>
       <%= link_to "メインメニュー", menus_path %>
+      <%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "トップページ", root_path %>
