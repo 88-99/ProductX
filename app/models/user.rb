@@ -21,4 +21,13 @@ class User < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
+  
+  private
+
+  def check_destroy_admin
+    if User.where(admin: true).count <= 1 && self.admin == true
+      throw(:abort)
+    end
+  end
+
 end
