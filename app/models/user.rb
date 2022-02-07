@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_destroy :check_destroy_admin
   has_many :purchases
   has_many :sales
   has_many :groupings, dependent: :destroy
