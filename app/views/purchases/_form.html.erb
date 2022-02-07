@@ -44,10 +44,22 @@
       <%= pc.text_field :quantity %>
     </div>
   
-    <div class="purchase_total">
-      <p>合計:</p>
-    </div> 
+    <div class="cost_price">
+      <%= pc.label :原価 %>
+      <%= pc.object.product.cost_price if pc.object.id.present?%>
+    </div>
+
+    <div class="regular_price">
+      <%= pc.label :定価 %>
+      <%= pc.object.product.regular_price if pc.object.id.present? %>
+    </div>
+
   <% end %>
+  
+  <div class="total_amount">
+      <%= form.label :合計金額 %>
+      <%= @total_amount %><p>円</p>
+  </div>
 
   <%= form.submit %>
 <% end %>
