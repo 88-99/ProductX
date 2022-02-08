@@ -4,13 +4,13 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to menus_path, notice: 'ゲスト一般ユーザーとしてログインしました。'
+    redirect_to new_team_path, notice: 'ゲスト一般ユーザーとしてログインしました！アプリを利用するには、次にチームを作成してください。'
   end
 
   def admin_guest_sign_in
     admin = User.guest_admin
     sign_in admin
-    redirect_to menus_path, notice: 'ゲスト管理者としてログインしました。'
+    redirect_to new_team_path, notice: 'ゲスト管理者としてログインしました！アプリを利用するには、次にチームを作成してください。'
   end
   
   # before_action :configure_sign_in_params, only: [:create]
