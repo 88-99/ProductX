@@ -19,15 +19,15 @@
       <% if stock_detail.try(:sale).nil? %>
         <td>仕入：<%= stock_detail.date_at_of_purchase_or_sale %></td>
         <td><%= stock_detail.name_of_purchase_or_sale %></td>
-        <td><%= "#{stock_detail.quantity}個" %></td>
-        <td><%= "#{stock_detail.price_of_purchase_or_sale}円" %></td>
-        <td><%= "#{amount += stock_detail.quantity}個" %></td>
+        <td><%= "#{stock_detail.quantity}" %></td>
+        <td><%= "#{stock_detail.price_of_purchase_or_sale}" %></td>
+        <td><%= "#{amount += stock_detail.quantity}" %></td>
       <% else %>
         <td>売上：<%= stock_detail.date_at_of_purchase_or_sale %></td>
         <td><%= stock_detail.name_of_purchase_or_sale %></td>
-        <td><%= "#{stock_detail.quantity}個" %></td>
-        <td><%= "#{stock_detail.price_of_purchase_or_sale}円" %></td>
-        <td><%= "#{amount -= stock_detail.quantity}個" %></td>
+        <td><%= "#{stock_detail.quantity}" %></td>
+        <td><%= "#{stock_detail.price_of_purchase_or_sale}" %></td>
+        <td><%= "#{amount -= stock_detail.quantity}" %></td>
       <% end %>      
     </tr>
   <% end %>
