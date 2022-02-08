@@ -24,7 +24,7 @@ class PurchasesController < ApplicationController
   
   def edit
     @total_amount = 0
-    @purchase.purchase_details.each {|detail| @total_amount +=  detail.quantity * detail.product.cost_price}
+    @purchase.purchase_details.each {|detail| @total_amount += detail.quantity * detail.product.cost_price}
 
     @purchase.purchase_details.build
     @products = Purchase.find(params[:id]).purchased_products
