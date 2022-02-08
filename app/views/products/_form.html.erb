@@ -19,15 +19,15 @@
   </div>
   <div class="product_regular_price">
     <%= form.label :regular_price %> 
-    <%= form.number_field :regular_price, placeholder: "標準価格" %>
+    <%= form.text_field :regular_price, placeholder: "標準価格" %>
   </div>
   <div class="product_selling_price">
     <%= form.label :selling_price %>
-    <%= form.number_field :selling_price, step: "0.2", placeholder: "売価" %>
+    <%= form.text_field :selling_price, placeholder: "売価" %>
   </div>
   <div class="product_cost_price">
     <%= form.label :cost_price %>
-    <%= form.number_field :cost_price, step: "0.2", placeholder: "原価" %>
+    <%= form.text_field :cost_price, placeholder: "原価" %>
   </div>
   <div class="product_remarks">
     <%= form.label :remarks %>
