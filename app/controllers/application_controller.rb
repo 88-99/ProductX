@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_user(team)
+    redirect_to menus_path if current_user.groupings.first.id != team.id
+  end
+
   private
   def configure_permitted_parameters
     # サインアップ時にnameのストロングパラメータを追加
