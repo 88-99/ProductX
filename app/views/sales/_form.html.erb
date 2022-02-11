@@ -42,10 +42,21 @@
       <%= sd.text_field :quantity %>
     </div>
   
-    <div class="sale_total">
-      <p>合計:</p>
-    </div> 
+    <div class="selling_price">
+      <%= sd.label :単価 %>
+      <%= sd.object.product.selling_price.to_i.to_s(:delimited) if sd.object.id.present?%>
+    </div>
+
+    <div class="regular_price">
+      <%= sd.label :定価 %>
+      <%= sd.object.product.regular_price.to_i.to_s(:delimited) if sd.object.id.present? %>
+    </div>
   <% end %>
+
+  <div class="total_amount">
+      <%= form.label :合計金額 %>
+      <%= @total_amount.to_i.to_s(:delimited) %><p>円</p>
+  </div>
 
   <%= form.submit %>
 <% end %>

@@ -23,6 +23,9 @@ class SalesController < ApplicationController
   end
   
   def edit
+    @total_amount = 0
+    @sale.sale_details.each {|detail| @total_amount += detail.quantity * detail.product.selling_price}
+    
     @sale.sale_details.build
     @products = Sale.find(params[:id]).saled_products
   end
