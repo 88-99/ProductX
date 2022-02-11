@@ -6,5 +6,5 @@ class Client < ApplicationRecord
   validates :phone_number, length: { maximum: 20 }
   validates :fax_number, length: { maximum: 20 }
   validates :address, length: { maximum: 40 }
-  validates :address, length: { maximum: 400 }
+  validates :remarks, length: { maximum: 400 }
 end
