@@ -11,21 +11,25 @@
   </head>
 
   <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">ProductX</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+      <% if user_signed_in? %>
+        <a class="p-2 text-dark"><%= current_user.name %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to "メインメニュー", menus_path %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
+      <% else %>
+        <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to "新規登録", new_user_registration_path %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to "ログイン", new_user_session_path %></a>    
+      <% end %>
+      </nav>
+      
+    </div>    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <% if user_signed_in? %>
-      <%= current_user.name %>
-      <%= link_to "トップページ", root_path %>
-      <%= link_to "メインメニュー", menus_path %>
-      <%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "トップページ", root_path %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-    
     <%= yield %>
   </body>
 </html>
