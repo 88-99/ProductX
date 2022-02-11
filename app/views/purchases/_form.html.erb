@@ -30,26 +30,26 @@
     <%= form.hidden_field :inputter, value: current_user.id %> <!-- パラメータで入力者のidを渡すため。-->
   </div>
 
-  <%= form.fields_for :purchase_details do |pc| %>
+  <%= form.fields_for :purchase_details do |pd| %>
     <strong>
-      <p>商品<%= "#{pc.index+1}" %></p>
+      <p>商品<%= "#{pd.index+1}" %></p>
     </strong>
 
-    <%= pc.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
+    <%= pd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
 
-    <div class="pc_quantity">
-      <%= pc.label :個数 %>
-      <%= pc.text_field :quantity %>
+    <div class="pd_quantity">
+      <%= pd.label :個数 %>
+      <%= pd.text_field :quantity %>
     </div>
   
     <div class="cost_price">
-      <%= pc.label :原価 %>
-      <%= pc.object.product.cost_price.to_i.to_s(:delimited) if pc.object.id.present?%>
+      <%= pd.label :原価 %>
+      <%= pd.object.product.cost_price.to_i.to_s(:delimited) if pd.object.id.present?%>
     </div>
 
     <div class="regular_price">
-      <%= pc.label :定価 %>
-      <%= pc.object.product.regular_price.to_i.to_s(:delimited) if pc.object.id.present? %>
+      <%= pd.label :定価 %>
+      <%= pd.object.product.regular_price.to_i.to_s(:delimited) if pd.object.id.present? %>
     </div>
 
   <% end %>
