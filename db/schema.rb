@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "purchase_details", force: :cascade do |t|
-    t.bigint "quantity"
+    t.bigint "quantity", null: false
     t.bigint "purchase_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "sale_details", force: :cascade do |t|
-    t.bigint "quantity"
+    t.bigint "quantity", null: false
     t.bigint "sale_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
