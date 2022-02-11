@@ -14,7 +14,11 @@
  *= require_self
  */
 
- body,html {
+div p {
+  display: inline-block;
+}
+
+body,html {
   height: 100%;
   display: flex;
   flex-flow: column;
