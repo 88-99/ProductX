@@ -21,9 +21,11 @@
         <a class="p-2 text-dark" href="#"><%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %></a>
         <a class="p-2 text-dark" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
       <% else %>
+        <a class="p-2 text-dark" href="#"><%= link_to 'ゲストユーザ', users_guest_sign_in_path, method: :post %></a>
+        <a class="p-2 text-dark" href="#"><%= link_to 'ゲスト管理者', admins_guest_sign_in_path, method: :post %></a>
         <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
         <a class="p-2 text-dark" href="#"><%= link_to "新規登録", new_user_registration_path %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "ログイン", new_user_session_path %></a>    
+        <a class="p-2 text-dark" href="#"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %></a>    
       <% end %>
       </nav>
       
@@ -31,5 +33,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy;  ProductX 2022</div></div>                    
+                </div>
+            </div>
+        </footer>
   </body>
 </html>

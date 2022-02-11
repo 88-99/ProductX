@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+ body,html {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.feature {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.5rem;  
+  border-radius:0.5rem;
+}
+
+.fs-4 {
+  font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+<!--要修正-->
+.small {
+  text-align: center
+}
