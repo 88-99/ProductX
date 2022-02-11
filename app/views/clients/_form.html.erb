@@ -9,10 +9,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="client_code">
-    <%= form.label :code %>
-    <%= form.text_field :code, placeholder: "得意先コード" %>
-  </div>
+  
   <div class="client_name">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "得意先名" %>
@@ -36,5 +33,5 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to 'メインメニュー', menus_path %>
 <%= link_to '一覧', clients_path %>
+<%= link_to 'メインメニュー', menus_path %>

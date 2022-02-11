@@ -4,13 +4,13 @@
 
 <table>
   <tr>
-    <th>売上コード</th>
+    <th>売上ID</th>
     <th>売上日</th>
     <th>得意先</th>
   </tr>
   <% @sales.each do |sl| %>
     <tr>
-      <td><%= sl.code %></td>
+      <td><%= sl.id %></td>
       <td><%= sl.date_at %></td>
       <td><%= Client.find(sl.client_id).name %></td>
       <td><%= link_to '編集', edit_sale_path(sl.id), class: "btn btn-success" %></td>
