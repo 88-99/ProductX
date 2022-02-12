@@ -14,12 +14,12 @@ class TeamsController < ApplicationController
       if @team.save
         @grouping = current_user.groupings.build(team_id: @team.id)
         @grouping.save
-        redirect_to edit_team_path(@team.id), notice: "チームを登録しました！"
+        redirect_to menus_path, notice: "チーム：#{@team.name}を登録しました！"
       else
         render :new
       end        
     else
-      redirect_to menus_path, notice: "チームは1チームのみ作成できます。既にチームが作成されています。"
+      redirect_to menus_path, notice: "チームは1チームのみ作成できます。既にチーム：#{@team.name}が作成されています。"
     end      
   end
 
@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to team_path, notice: "チームを編集しました！"
+      redirect_to menus_path, notice: "チーム：#{@team.name}を編集しました！"
     else
       render :edit
     end

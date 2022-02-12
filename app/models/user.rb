@@ -14,8 +14,8 @@ class User < ApplicationRecord
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
-      user.name = "ゲスト一般ユーザ"
-      user.nickname = "ゲスト一般ユーザ"
+      user.name = "ゲストユーザ"
+      user.nickname = "ゲストユーザ"
       user.phone_number = "09012345678"
       user.password = SecureRandom.urlsafe_base64
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
@@ -42,5 +42,4 @@ class User < ApplicationRecord
       throw(:abort)
     end
   end
-
 end

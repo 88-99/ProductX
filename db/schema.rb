@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "clients", force: :cascade do |t|
-    t.bigint "code", null: false
     t.string "name", null: false
     t.string "phone_number"
     t.string "fax_number"
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
     t.text "remarks"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "index_clients_on_code", unique: true
   end
 
   create_table "groupings", force: :cascade do |t|
@@ -48,12 +46,12 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.bigint "code", null: false
+    t.string "code", null: false
     t.string "name", null: false
     t.text "remarks"
     t.integer "regular_price"
-    t.float "selling_price"
-    t.float "cost_price"
+    t.integer "selling_price"
+    t.integer "cost_price"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "purchase_details", force: :cascade do |t|
-    t.bigint "quantity"
+    t.bigint "quantity", null: false
     t.bigint "purchase_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -72,7 +70,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.bigint "code", null: false
     t.date "date_at", null: false
     t.integer "inputter", null: false
     t.integer "total"
@@ -94,7 +91,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "sale_details", force: :cascade do |t|
-    t.bigint "quantity"
+    t.bigint "quantity", null: false
     t.bigint "sale_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -104,7 +101,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.bigint "code", null: false
     t.date "date_at", null: false
     t.integer "inputter", null: false
     t.integer "total"
@@ -117,7 +113,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   end
 
   create_table "suppliers", force: :cascade do |t|
-    t.bigint "code", null: false
     t.string "name", null: false
     t.string "phone_number"
     t.string "fax_number"
@@ -125,7 +120,6 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
     t.text "remarks"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "index_suppliers_on_code", unique: true
   end
 
   create_table "teams", force: :cascade do |t|

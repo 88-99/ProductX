@@ -4,25 +4,24 @@
 
 <table>
   <tr>
-    <th>仕入先コード</th>
+    <th>仕入先ID</th>
     <th>仕入先名</th>
     <th>電話番号</th>
     <th>FAX番号</th>
     <th>住所</th>
     <th>備考</th>
   </tr>
-  <% @suppliers.each do |c| %>
+  <% @suppliers.each do |s| %>
     <tr>
-      <td><%= c.code %></td>
-      <td><%= c.name %></td>
-      <td><%= c.phone_number %></td>
-      <td><%= c.fax_number %></td>
-      <td><%= c.address %></td>
-      <td><%= c.remarks %></td>
-      <td><%= link_to '編集', edit_supplier_path(c.id) %></td>
+      <td><%= s.id %></td>
+      <td><%= s.name %></td>
+      <td><%= s.phone_number %></td>
+      <td><%= s.fax_number %></td>
+      <td><%= s.address %></td>
+      <td><%= s.remarks %></td>
+      <td><%= link_to '編集', edit_supplier_path(s.id) %></td>
     </tr>
   <% end %>
 </table>
 
 <%= link_to 'メインメニュー', menus_path %>
-
