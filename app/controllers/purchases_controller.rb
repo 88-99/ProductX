@@ -32,7 +32,7 @@ class PurchasesController < ApplicationController
   end
 
   def update    
-    if @purchase.update(purchase_params)
+    if @purchase.update!(purchase_params)
       redirect_to edit_purchase_path(@purchase.id), notice: "仕入を編集しました！"
     else
       render :edit
@@ -46,7 +46,7 @@ class PurchasesController < ApplicationController
 
   def detail_destroy
     @purchase_detail.destroy
-    redirect_to purchases_path, notice: "仕入を削除しました！"
+    redirect_to edit_purchase_path(@purchase.id), notice: "商品を削除しました！"
   end
 
   private
