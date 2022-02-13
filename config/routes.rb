@@ -12,7 +12,11 @@ Rails.application.routes.draw do
       delete 'detail_destroy'
     end
   end
-  resources :sales
+  resources :sales do
+    member do
+      delete 'detail_destroy'
+    end
+  end
 
   resources :teams do
     resources :groupings
