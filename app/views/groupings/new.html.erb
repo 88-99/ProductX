@@ -1,4 +1,5 @@
-<%= form_with(model: @grouping, local: true) do |form| %>
+<h3>メンバー登録</h3>
+<%= form_with(model: @grouping, url: new_team_grouping_path, local: true) do |form| %>
   <% if @grouping.errors.any? %>
     <div id="error_explanation">
       <h2><%= @grouping.errors.count %>件のエラーがあります。</h2>
@@ -8,7 +9,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %>  
   <div class="grouping_email">
     <%= form.label :メンバーのemail %>
     <%= form.text_field :email, placeholder: "メンバーのemail" %>
