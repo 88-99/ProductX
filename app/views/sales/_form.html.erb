@@ -46,6 +46,17 @@
       <%= sd.label :定価 %>
       <%= sd.object.product.regular_price.to_i.to_s(:delimited) if sd.object.id.present? %>
     </div>
+
+    <% if sd.object.id.present? %>
+      <div class="detail_total">
+        <%= sd.label :商品合計 %>
+        <%= (sd.object.quantity * sd.object.product.selling_price).to_i.to_s(:delimited) %>
+      </div>
+    <% end %>
+
+    <% if action_name != "new" && !sd.object.id.nil? %>
+      <%= link_to "商品#{sd.index+1}を削除", detail_destroy_sale_path(sale_detail_id: sd.object.id), method: :delete %>
+    <% end %>  
   <% end %>
 
   <div class="total_amount">
@@ -56,5 +67,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to '売上一覧', sales_path %>
 <%= link_to 'メインメニュー', menus_path %>

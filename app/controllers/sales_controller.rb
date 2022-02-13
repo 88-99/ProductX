@@ -1,5 +1,6 @@
 class SalesController < ApplicationController
-  before_action :set_sale, only: %i[ edit update destroy ]
+  before_action :set_sale, only: %i[ edit update destroy detail_destroy ]
+  before_action :set_sale_detail, only: %i[ detail_destroy ]
 
   def index
     @sales = Sale.all # .order(created_at: :desc)
@@ -31,7 +32,7 @@ class SalesController < ApplicationController
   end
 
   def update    
-    if @sale.update(sale_params)
+    if @sale.update!(sale_params)
       redirect_to edit_sale_path(@sale.id), notice: "売上を編集しました！"
     else
       render :edit
@@ -43,6 +44,11 @@ class SalesController < ApplicationController
     redirect_to sales_path, notice: "売上を削除しました！"
   end
 
+  def detail_destroy
+    @sale_detail.destroy
+    redirect_to edit_sale_path(@sale.id), notice: "商品を削除しました！"
+  end
+
   private
   def set_sale
     @sale = Sale.find(params[:id])
@@ -50,5 +56,13 @@ class SalesController < ApplicationController
 
   def sale_params
     params.require(:sale).permit(:code, :date_at, :inputter, :client_id, sale_details_attributes: [:id, :product_id, :quantity])
+  end
+
+  def set_sale_detail
+    @sale_detail = SaleDetail.find(params[:sale_detail_id])
+  end
+
+  def purchase_detail_params
+    params.require(:sale_detail).permit(:quantity, :sale_id, :product_id)
   end
 end
