@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: %i[ edit update destroy ]
+  before_action :set_purchase_detail, only: %i[ detail_destroy ]
 
   def index
     @purchases = Purchase.all # .order(created_at: :desc)
@@ -43,6 +44,11 @@ class PurchasesController < ApplicationController
     redirect_to purchases_path, notice: "仕入を削除しました！"
   end
 
+  def detail_destroy
+    @purchase_detail.destroy
+    redirect_to purchases_path, notice: "仕入を削除しました！"
+  end
+
   private
   def set_purchase
     @purchase = Purchase.find(params[:id])
@@ -50,5 +56,13 @@ class PurchasesController < ApplicationController
 
   def purchase_params
     params.require(:purchase).permit(:code, :date_at, :inputter, :supplier_id, purchase_details_attributes: [:id, :product_id, :quantity])
+  end
+
+  def set_purchase_detail
+    @purchase_detail = PurchaseDetail.find(params[:purchase_detail_id])
+  end
+
+  def purchase_detail_params
+    params.require(:purchase_detail).permit(:quantity, :purchase_id, :product_id)
   end
 end
