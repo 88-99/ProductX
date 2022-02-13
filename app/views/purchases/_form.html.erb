@@ -47,6 +47,16 @@
       <%= pd.object.product.regular_price.to_i.to_s(:delimited) if pd.object.id.present? %>
     </div>
 
+    <% if pd.object.id.present? %>
+      <div class="detail_total">
+        <%= pd.label :商品合計 %>
+        <%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>
+      </div>
+    <% end %>
+
+    <% if action_name != "new" && !pd.object.id.nil? %>
+      <%= link_to "商品#{pd.index+1}を削除", detail_destroy_purchase_path(purchase_detail_id: pd.object.id), method: :delete %>
+    <% end %>
   <% end %>
   
   <div class="total_amount">
@@ -57,5 +67,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to '仕入一覧', purchases_path %>
 <%= link_to 'メインメニュー', menus_path %>
