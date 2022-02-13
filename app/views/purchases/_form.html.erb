@@ -50,7 +50,7 @@
     <% if pd.object.id.present? %>
       <div class="detail_total">
         <%= pd.label :商品合計 %>
-        <%= pd.object.quantity * pd.object.product.cost_price %>
+        <%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>
       </div>
     <% end %>
 
