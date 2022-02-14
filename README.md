@@ -14,13 +14,13 @@
 ## 就業Termの技術
 
 * devise
-* AWS EC2
+* Heroku
 * Ajaxを使ったコメント機能
 ***
 <br />
 
 ## カリキュラム外の技術
-* chartkick
+* ActiveDecorator
 ***
 <br />
 
