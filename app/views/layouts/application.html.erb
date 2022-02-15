@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ProductX</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
   <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">ProductX</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-      <% if user_signed_in? %>
-        <a class="p-2 text-dark"><%= current_user.name %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "メインメニュー", menus_path %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
-      <% else %>
-        <a class="p-2 text-dark" href="#"><%= link_to 'ゲストユーザ', users_guest_sign_in_path, method: :post %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to 'ゲスト管理者', admins_guest_sign_in_path, method: :post %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "新規登録", new_user_registration_path %></a>
-        <a class="p-2 text-dark" href="#"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %></a>    
-      <% end %>
-      </nav>
+    <div class="wrapper">
+      <head>
+        <title>ProductX</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </head>
       
-    </div>    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <!-- Footer-->
-        <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy;  ProductX 2022</div></div>                    
-                </div>
-            </div>
-        </footer>
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">ProductX</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+        <div class="header_menu">
+          <% if user_signed_in? %>
+            <a class="p-2 text-dark"><%= current_user.name %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to "メインメニュー", menus_path %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
+          <% else %>
+            <a class="p-2 text-dark" href="#"><%= link_to 'ゲストユーザ', users_guest_sign_in_path, method: :post %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to 'ゲスト管理者', admins_guest_sign_in_path, method: :post %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to "新規登録", new_user_registration_path %></a>
+            <a class="p-2 text-dark" href="#"><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %></a>    
+          <% end %>
+        </div>
+        </nav>          
+      </div>   
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      <%= yield %>
+      
+      <!-- Footer-->
+      <footer class="bg-dark py-4 mt-auto">
+          <div class="container px-5">
+              <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                  <div class="col-auto"><div class="small m-0 text-white">Copyright &copy;  ProductX 2022</div></div>                    
+              </div>
+          </div>
+      </footer>
+    </div>
   </body>
 </html>
