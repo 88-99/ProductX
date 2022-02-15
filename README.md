@@ -14,13 +14,13 @@
 ## 就業Termの技術
 
 * devise
-* AWS EC2
+* Heroku
 * Ajaxを使ったコメント機能
 ***
 <br />
 
 ## カリキュラム外の技術
-* chartkick
+* ActiveDecorator
 ***
 <br />
 
@@ -49,7 +49,7 @@ $ rails s
 
 ## ER図
 
-<img width="1179" alt="ER図 2022-01-07 21 12 35" src="https://user-images.githubusercontent.com/83388876/148543384-ce36e9eb-1697-456e-b9aa-f75f5e298a29.png">
+<img width="1185" alt="ER図 2022-02-14 14 20 35" src="https://user-images.githubusercontent.com/83388876/153804802-23ee7076-9257-4c23-aaf9-3aadcc73627c.png">
 
 ***
 <br />
