@@ -11323,6 +11323,15 @@ textarea.form-control-lg {
 html {
   height: 100%;
 }
+.header_menu {
+  width: 1030px;
+  margin-left: auto;
+  text-align: right;
+}
+footer {
+  margin-top: auto;
+}
+
 
 .feature {
   display: inline-flex;
