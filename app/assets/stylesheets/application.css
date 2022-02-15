@@ -38,8 +38,3 @@ body,html {
 .fs-4 {
   font-size: calc(1.275rem + 0.3vw) !important;
 }
-
-<!--要修正-->
-.small {
-  text-align: center
-}
