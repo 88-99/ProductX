@@ -27,7 +27,7 @@ div p {
   margin-left: auto;
   text-align: right;
 }
-footer {
+.footer {
   margin-top: auto;
 }
 
@@ -11319,19 +11319,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-  body,
+body,
 html {
   height: 100%;
 }
-.header_menu {
-  width: 1030px;
-  margin-left: auto;
-  text-align: right;
-}
-footer {
-  margin-top: auto;
-}
-
 
 .feature {
   display: inline-flex;
@@ -11339,7 +11330,6 @@ footer {
   justify-content: center;
   height: 3rem;
   width: 3rem;
-<<<<<<< HEAD
   font-size: 1.5rem;
 }
 
@@ -11350,12 +11340,6 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 15rem;
-=======
   font-size: 1.5rem;  
   border-radius:0.5rem;
-}
-
-.fs-4 {
-  font-size: calc(1.275rem + 0.3vw) !important;
->>>>>>> master
 }
