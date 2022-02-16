@@ -34,55 +34,55 @@
 # end
 
 
-5.times do |n|
-  Purchase.create!(
-           user_id:     User.first.id,
-           supplier_id: Supplier.first.id,
-           date_at:     "2022020#{n+1}",
-           inputter:    User.first.id
-           )
-end
-
-5.times do |n|
-  Purchase.create!(
-           user_id:     (User.first.id)+1,
-           supplier_id: (Supplier.first.id)+1,
-           date_at:     "2022020#{2*n+1}",
-           inputter:    (User.first.id)+1
-           )
-end
-
-5.times do |n|
-  Sale.create!(
-           user_id:   User.first.id,
-           client_id: Client.first.id,
-           date_at:   "2022020#{n+1}",
-           inputter:  User.first.id
-           )
-end
-
-5.times do |n|
-  Sale.create!(
-           user_id:   (User.first.id)+1,
-           client_id: (Client.first.id)+1,
-           date_at:   "2022020#{2*n+1}",
-           inputter:  (User.first.id)+1
-           )
-end
-
-
 # 5.times do |n|
-#   PurchaseDetail.create!(
-#                  purchase_id: (Purchase.last.id)-n,
-#                  product_id:  (Product.last.id)-n,
-#                  quantity:    (n+1)*100
-#                  )
+#   Purchase.create!(
+#            user_id:     User.first.id,
+#            supplier_id: Supplier.first.id,
+#            date_at:     "2022020#{n+1}",
+#            inputter:    User.first.id
+#            )
 # end
 
 # 5.times do |n|
-#   SaleDetail.create!(
-#   sale_id:     (Sale.last.id)-n,
-#   product_id:  (Product.last.id)-n,
-#   quantity:    (n+1)*100
-#   )
+#   Purchase.create!(
+#            user_id:     (User.first.id)+1,
+#            supplier_id: (Supplier.first.id)+1,
+#            date_at:     "2022020#{2*n+1}",
+#            inputter:    (User.first.id)+1
+#            )
 # end
+
+# 5.times do |n|
+#   Sale.create!(
+#            user_id:   User.first.id,
+#            client_id: Client.first.id,
+#            date_at:   "2022020#{n+1}",
+#            inputter:  User.first.id
+#            )
+# end
+
+# 5.times do |n|
+#   Sale.create!(
+#            user_id:   (User.first.id)+1,
+#            client_id: (Client.first.id)+1,
+#            date_at:   "2022020#{2*n+1}",
+#            inputter:  (User.first.id)+1
+#            )
+# end
+
+
+5.times do |n|
+  PurchaseDetail.create!(
+                 purchase_id: (Purchase.last.id)-n,
+                 product_id:  (Product.last.id)-n,
+                 quantity:    (n+1)*100
+                 )
+end
+
+5.times do |n|
+  SaleDetail.create!(
+  sale_id:     (Sale.last.id)-n,
+  product_id:  (Product.last.id)-n,
+  quantity:    (n+1)*100
+  )
+end
