@@ -27,7 +27,7 @@ div p {
   margin-left: auto;
   text-align: right;
 }
-footer {
+.footer {
   margin-top: auto;
 }
 
@@ -11319,19 +11319,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-  body,
+body,
 html {
   height: 100%;
 }
-.header_menu {
-  width: 1030px;
-  margin-left: auto;
-  text-align: right;
-}
-footer {
-  margin-top: auto;
-}
-
 
 .feature {
   display: inline-flex;
