@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      answer: 回答
+      client: 得意先
+      grouping: メンバー
+      product: 商品
+      purchase_detail: 仕入明細
+      purchase: 仕入
+      question: 質問
+      sale_detail: 売上明細
+      sale: 売上
+      supplier: 仕入先
+      team: チーム
+      user: ユーザー
+    attributes:
+      blog:
+        title: タイトル
+        content: 内容
+      user:
+        title: タイトル
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
