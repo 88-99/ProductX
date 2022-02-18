@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.user_id = current_user.id
+    @team.chief = current_user.id
     @team.save
     @team = Team.last
     
