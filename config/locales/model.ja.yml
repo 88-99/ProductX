@@ -3,7 +3,6 @@ ja:
     models:
       answer: 回答
       client: 得意先
-      grouping: メンバー
       product: 商品
       purchase_detail: 仕入明細
       purchase: 仕入
@@ -16,48 +15,50 @@ ja:
     attributes:
       answer:
         content: 内容
-      client: 得意先
+      client:
         name: 得意先名
         phone_number: 電話番号
         fax_number: FAX番号
         address: 住所
         remarks: 備考
-      product: 商品
+      product:
         code: 商品コード
         name: 商品名
         remarks: 備考
-        regular_price: 商品名
-        selling_price: 商品名
-        cost_price: 商品名
-      purchase_detail: 仕入明細
-        quantity: 数量
-      purchase: 仕入
+        regular_price: 標準価格
+        selling_price: 売価
+        cost_price: 原価 
+      purchase_detail:
+        quantity: 数量 
+      purchase:
         date_at: 仕入日
         inputter: 入力者
-        total: 合計金額
-      question: 質問
+        total: 合計金額 
+        supplier_name: 仕入先名  
+      question:
         title: タイトル
         content: 内容
-      sale_detail: 売上明細
-        quantity: 数量
-      sale: 売上
+      sale_detail:
+        quantity: 数量 
+      sale:
         date_at: 日付
         inputter: 入力者
         total: 合計金額
-      supplier: 仕入先
+        client_name: 得意先名
+      supplier:
         name: 得意先名
         phone_number: 電話番号
         fax_number: FAX番号
         address: 住所
         remarks: 備考
-      team: チーム
+      team:
         name: チーム名
-        remarks: 備考
-      user: ユーザ
+        remarks: 備考  
+      user:
         email: メールアドレス
         name: 名前
         phone_number: 電話番号
-        nickname: ニックネーム        
+        nickname: ニックネーム
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード
