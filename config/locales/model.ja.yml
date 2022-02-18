@@ -14,13 +14,50 @@ ja:
       team: チーム
       user: ユーザー
     attributes:
-      blog:
+      answer:
+        content: 内容
+      client: 得意先
+        name: 得意先名
+        phone_number: 電話番号
+        fax_number: FAX番号
+        address: 住所
+        remarks: 備考
+      product: 商品
+        code: 商品コード
+        name: 商品名
+        remarks: 備考
+        regular_price: 商品名
+        selling_price: 商品名
+        cost_price: 商品名
+      purchase_detail: 仕入明細
+        quantity: 数量
+      purchase: 仕入
+        date_at: 仕入日
+        inputter: 入力者
+        total: 合計金額
+      question: 質問
         title: タイトル
         content: 内容
-      user:
-        title: タイトル
-        name: 名前
+      sale_detail: 売上明細
+        quantity: 数量
+      sale: 売上
+        date_at: 日付
+        inputter: 入力者
+        total: 合計金額
+      supplier: 仕入先
+        name: 得意先名
+        phone_number: 電話番号
+        fax_number: FAX番号
+        address: 住所
+        remarks: 備考
+      team: チーム
+        name: チーム名
+        remarks: 備考
+      user: ユーザ
         email: メールアドレス
+        name: 名前
+        phone_number: 電話番号
+        nickname: ニックネーム        
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード
