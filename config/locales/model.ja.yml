@@ -27,33 +27,39 @@ ja:
         remarks: 備考
         regular_price: 標準価格
         selling_price: 売価
-        cost_price: 原価 
+        cost_price: 原価
       purchase_detail:
-        quantity: 数量 
+        quantity: 数量  
+      purchase/purchase_details:        
+        product: 商品
       purchase:
         date_at: 仕入日
         inputter: 入力者
         total: 合計金額 
-        supplier_name: 仕入先名  
+        supplier_name: 仕入先名
+        supplier: 仕入先      
       question:
         title: タイトル
         content: 内容
       sale_detail:
-        quantity: 数量 
+        quantity: 数量
       sale:
         date_at: 日付
         inputter: 入力者
         total: 合計金額
         client_name: 得意先名
+        client: 得意先
+      sale/sale_details:        
+        product: 商品
       supplier:
-        name: 得意先名
+        name: 仕入先名
         phone_number: 電話番号
         fax_number: FAX番号
         address: 住所
         remarks: 備考
       team:
         name: チーム名
-        remarks: 備考  
+        remarks: 備考
       user:
         email: メールアドレス
         name: 名前
