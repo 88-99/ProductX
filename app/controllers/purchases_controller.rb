@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :set_team
-  before_action :set_purchase, only: %i[ edit update destroy ]
+  before_action :set_purchase, only: %i[ edit update destroy detail_destroy ]
   before_action :set_purchase_detail, only: %i[ detail_destroy ]
 
   def index
@@ -10,8 +10,7 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     1.times { @purchase.purchase_details.build }
-    @products = @team.products
-    # @products = Product.where(user_id: current_user.id)
+    @products = Product.where(user_id: current_user.id)
   end
 
   def create
@@ -31,7 +30,7 @@ class PurchasesController < ApplicationController
     @purchase.purchase_details.each {|detail| @total_amount += detail.quantity * detail.product.cost_price}
 
     @purchase.purchase_details.build
-    @products = @purchase.find(params[:id]).purchased_products
+    @products = Purchase.find(params[:id]).purchased_products
   end
 
   def update
@@ -59,7 +58,7 @@ class PurchasesController < ApplicationController
   end
 
   def set_purchase
-    @purchase = @team.purchases.find(params[:id])
+    @purchase = Purchase.find(params[:id])
   end
 
   def purchase_params

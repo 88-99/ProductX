@@ -55,7 +55,7 @@
     <% end %>
 
     <% if action_name != "new" && !pd.object.id.nil? %>
-      <%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase _path(team_id: @team, purchase_detail_id: pd.object.id), method: :delete %>
+      <%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase_path(purchase_detail_id: pd.object.id), method: :delete %>
     <% end %>
   <% end %>
   
