@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+  has_many :products
   has_many :teams_clients
   has_many :clients, through: :teams_clients
   has_many :teams_suppliers
