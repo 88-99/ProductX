@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :teams do
     resources :groupings
+    resources :products
   end
 
   resources :questions do
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
 
   resources :suppliers
   resources :clients
-  resources :products
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
