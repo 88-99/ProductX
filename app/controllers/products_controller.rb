@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = @team.products.find(params[:id])
   end
 
   def product_params
