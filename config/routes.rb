@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   resources :teams do
     resources :groupings
     resources :products
+    resources :purchases do
+      member do
+        delete 'detail_destroy'
+      end
+    end
   end
 
   resources :questions do
