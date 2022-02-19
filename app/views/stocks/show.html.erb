@@ -17,13 +17,15 @@
   <% @stock_details.each do | stock_detail | %>
     <tr>
       <% if stock_detail.try(:sale).nil? %>
-        <td>仕入：<%= stock_detail.date_at_of_purchase_or_sale %></td>
+        <td><%= "仕入：" %>
+        <td><%= stock_detail.date_at_of_purchase_or_sale %></td>
         <td><%= stock_detail.name_of_purchase_or_sale %></td>
         <td><%= "#{stock_detail.quantity}" %></td>
         <td><%= "#{stock_detail.price_of_purchase_or_sale}" %></td>
         <td><%= "#{amount += stock_detail.quantity}" %></td>
       <% else %>
-        <td>売上：<%= stock_detail.date_at_of_purchase_or_sale %></td>
+        <td><%= "売上：" %>
+        <td><%= stock_detail.date_at_of_purchase_or_sale %></td>
         <td><%= stock_detail.name_of_purchase_or_sale %></td>
         <td><%= "#{stock_detail.quantity}" %></td>
         <td><%= "#{stock_detail.price_of_purchase_or_sale}" %></td>
