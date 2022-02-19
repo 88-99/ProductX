@@ -15,7 +15,6 @@
 
 * devise
 * Heroku
-* Ajaxを使ったコメント機能
 ***
 <br />
 
