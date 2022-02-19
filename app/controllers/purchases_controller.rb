@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :set_team
   before_action :set_purchase, only: %i[ edit update destroy ]
   before_action :set_purchase_detail, only: %i[ detail_destroy ]
 
@@ -41,7 +42,7 @@ class PurchasesController < ApplicationController
 
   def destroy
     @purchase.destroy
-    redirect_to purchases_path, notice: "仕入を削除しました！"
+    redirect_to team_purchases_path(@team), notice: "仕入を削除しました！"
   end
 
   def detail_destroy
@@ -50,6 +51,11 @@ class PurchasesController < ApplicationController
   end
 
   private
+
+  def set_team
+    @team = current_user.team
+  end
+
   def set_purchase
     @purchase = Purchase.find(params[:id])
   end

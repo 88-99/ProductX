@@ -7,11 +7,6 @@ Rails.application.routes.draw do
   get '/menus', to: 'menus#index' # 「get 'menus/index'」-> menus_index_pathになる
   get 'stocks/show'
 
-  resources :purchases do
-    member do
-      delete 'detail_destroy'
-    end
-  end
   resources :sales do
     member do
       delete 'detail_destroy'

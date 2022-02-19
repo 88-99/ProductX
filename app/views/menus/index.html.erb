@@ -1,6 +1,6 @@
 <h4>メインメニュー</h4>
 <%= link_to '売上登録', new_sale_path %>
-<%= link_to '仕入登録', new_purchase_path %>
+<%= link_to '仕入登録', new_team_purchase_path(@team) %>
 <%= link_to '在庫受払帳', stocks_show_path %>
 <%= link_to '商品登録', team_products_path(@team)%>
 <%= link_to '得意先登録', clients_path %>
