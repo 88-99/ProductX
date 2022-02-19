@@ -53,9 +53,11 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
     t.integer "selling_price"
     t.integer "cost_price"
     t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "index_products_on_code", unique: true
+    t.index ["team_id"], name: "index_products_on_team_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -75,9 +77,11 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
     t.integer "total"
     t.bigint "supplier_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["supplier_id"], name: "index_purchases_on_supplier_id"
+    t.index ["team_id"], name: "index_purchases_on_team_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
@@ -106,9 +110,11 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
     t.integer "total"
     t.bigint "client_id", null: false
     t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_sales_on_client_id"
+    t.index ["team_id"], name: "index_sales_on_team_id"
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
@@ -177,15 +183,18 @@ ActiveRecord::Schema.define(version: 2022_02_07_124615) do
   add_foreign_key "answers", "users"
   add_foreign_key "groupings", "teams"
   add_foreign_key "groupings", "users"
+  add_foreign_key "products", "teams"
   add_foreign_key "products", "users"
   add_foreign_key "purchase_details", "products"
   add_foreign_key "purchase_details", "purchases"
   add_foreign_key "purchases", "suppliers"
+  add_foreign_key "purchases", "teams"
   add_foreign_key "purchases", "users"
   add_foreign_key "questions", "users"
   add_foreign_key "sale_details", "products"
   add_foreign_key "sale_details", "sales"
   add_foreign_key "sales", "clients"
+  add_foreign_key "sales", "teams"
   add_foreign_key "sales", "users"
   add_foreign_key "teams", "users"
   add_foreign_key "teams_clients", "clients"

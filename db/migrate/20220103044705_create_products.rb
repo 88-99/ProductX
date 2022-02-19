@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.integer :selling_price
       t.integer :cost_price
       t.references :user, null: false, foreign_key: true
+      t.references :team, null: false, foreign_key: true
 
       t.timestamps
     end
