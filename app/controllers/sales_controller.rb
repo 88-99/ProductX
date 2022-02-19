@@ -32,7 +32,7 @@ class SalesController < ApplicationController
   end
 
   def update    
-    if @sale.update!(sale_params)
+    if @sale.update(sale_params)
       redirect_to edit_sale_path(@sale.id), notice: "売上を編集しました！"
     else
       render :edit

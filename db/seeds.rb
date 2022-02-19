@@ -13,6 +13,7 @@
 #                )
 # end
 
+
 # 5.times do |n|
 #   Product.create!(code: "ppp#{n+1}",
 #                name: "ppp#{n+1}",
@@ -22,12 +23,10 @@
 #                user_id: User.first.id
 #                )
 # end
-
 # 5.times do |n|
 #   name = Faker::Company.name
 #   Client.create!(name: name)
 # end
-
 # 5.times do |n|
 #   name = Faker::Company.name
 #   Supplier.create!(name: name)
@@ -42,7 +41,6 @@
 #            inputter:    User.first.id
 #            )
 # end
-
 # 5.times do |n|
 #   Purchase.create!(
 #            user_id:     (User.first.id)+1,
@@ -51,7 +49,6 @@
 #            inputter:    (User.first.id)+1
 #            )
 # end
-
 # 5.times do |n|
 #   Sale.create!(
 #            user_id:   User.first.id,
@@ -60,7 +57,6 @@
 #            inputter:  User.first.id
 #            )
 # end
-
 # 5.times do |n|
 #   Sale.create!(
 #            user_id:   (User.first.id)+1,
@@ -78,7 +74,6 @@
                  quantity:    (n+1)*100
                  )
 end
-
 5.times do |n|
   SaleDetail.create!(
   sale_id:     (Sale.last.id)-n,

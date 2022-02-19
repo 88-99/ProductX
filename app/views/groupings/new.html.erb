@@ -1,5 +1,5 @@
 <h4>メンバー登録</h4>
-<%= form_with(model: @grouping, url: new_team_grouping_path, local: true) do |form| %>
+<%= form_with(model: @grouping, url: team_groupings_path(params[:team_id]), local: true) do |form| %>
   <% if @grouping.errors.any? %>
     <div id="error_explanation">
       <h4><%= @grouping.errors.count %>件のエラーがあります。</h4>
@@ -17,3 +17,5 @@
   
   <%= form.submit %>
 <% end %>
+<%= link_to 'メンバー一覧画面', team_path(current_user.team) %>
+<%= link_to 'メインメニュー', menus_path %>

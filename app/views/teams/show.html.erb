@@ -1,4 +1,4 @@
-<h2>メンバーのページ</h2>
+<h4>メンバーのページ</h4>
 <table>
   <thead>
     <tr>
@@ -11,10 +11,10 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to "削除する", team_grouping_path(@team, @team.groupings.ids), method: :delete, class: "btn btn-danger" %></td>
+        <td><%= link_to "削除する", team_grouping_path(team_id: @team.id, user_id: user), method: :delete, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%#= link_to 'メンバー登録', groupings_new_path(@team) %>
 <%= link_to 'メンバー登録', new_team_grouping_path(@team) %>
+<%= link_to 'メインメニュー', menus_path %>

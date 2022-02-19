@@ -31,8 +31,8 @@ class PurchasesController < ApplicationController
     @products = Purchase.find(params[:id]).purchased_products
   end
 
-  def update    
-    if @purchase.update!(purchase_params)
+  def update
+    if @purchase.update(purchase_params)
       redirect_to edit_purchase_path(@purchase.id), notice: "仕入を編集しました！"
     else
       render :edit
