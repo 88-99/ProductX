@@ -32,7 +32,7 @@ class PurchasesController < ApplicationController
   end
 
   def update    
-    if @purchase.update!(purchase_params)
+    if @purchase.update(purchase_params)
       redirect_to edit_purchase_path(@purchase.id), notice: "仕入を編集しました！"
     else
       render :edit
