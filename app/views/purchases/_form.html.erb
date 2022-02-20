@@ -30,7 +30,7 @@
       <p>商品<%= "#{pd.index+1}" %></p>
     </strong>
 
-    <%= pd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
+    <%= pd.collection_select(:product_id, @products.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
 
     <div class="pd_quantity">
       <%= pd.label :個数 %>
