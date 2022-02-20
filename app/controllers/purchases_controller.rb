@@ -18,9 +18,8 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = @team.purchases.build(purchase_params) # purchasesはhas_many :purchases
-    @purchase.user_id = current_user.id
     # @purchase = Purchase.new(purchase_params)
-    # @purchase.user_id = current_user.id
+    @purchase.user_id = current_user.id
     if @purchase.save
       redirect_to edit_team_purchase_path(@team, @purchase.id), notice: "仕入を登録しました！"
     else

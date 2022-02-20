@@ -14,9 +14,9 @@ class SalesController < ApplicationController
   end
 
   def create
-    @sale = current_user.sales.build(sale_params) # salesはhas_many :sales
+    @sale = @team.sales.build(sale_params) # salesはhas_many :sales
     # @sale = Sale.new(sale_params)
-    # @sale.user_id = current_user.id
+    @sale.user_id = current_user.id
     if @sale.save
       redirect_to edit_sale_path(@team, @sale.id), notice: "売上を登録しました！"
     else
