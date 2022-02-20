@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :teams do
     resources :groupings
     resources :products
-    resources :stocks, only: %i[show]
+    resources :stocks, only: %i[index]
     resources :purchases do
       member do
         delete 'detail_destroy'
