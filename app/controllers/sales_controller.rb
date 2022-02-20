@@ -18,7 +18,7 @@ class SalesController < ApplicationController
     # @sale = Sale.new(sale_params)
     @sale.user_id = current_user.id
     if @sale.save
-      redirect_to edit_sale_path(@team, @sale.id), notice: "売上を登録しました！"
+      redirect_to edit_team_sale_path(@team, @sale.id), notice: "売上を登録しました！"
     else
       render :new
     end    

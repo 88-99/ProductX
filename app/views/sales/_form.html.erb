@@ -55,7 +55,7 @@
     <% end %>
 
     <% if action_name != "new" && !sd.object.id.nil? %>
-      <%= link_to "商品#{sd.index+1}を削除", detail_destroy_sale_path(sale_detail_id: sd.object.id), method: :delete %>
+      <%= link_to "商品#{sd.index+1}を削除", detail_destroy_team_sale_path(sale_detail_id: sd.object.id), method: :delete %>
     <% end %>  
   <% end %>
 
