@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'tops#index'
   get '/menus', to: 'menus#index' # 「get 'menus/index'」-> menus_index_pathになる
+  get '/menu_member', to: 'menus#show'
   get 'stocks/show'
 
   resources :sales do

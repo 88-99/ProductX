@@ -9,6 +9,11 @@
       </ul>
     </div>
   <% end %>
+
+  <strong>メンバーにご登録の方はこちらの<%= link_to 'メンバー専用', menu_member_path %>を押して、この画面をスキップしてください。</strong>
+  <strong>チームのオーナー様はチームを作成してください。</strong>
+  <strong>チームを作成すると、他のチームに所属することはできません。</strong>
+
   <div class="team_name">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "チーム名" %>
