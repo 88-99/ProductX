@@ -54,7 +54,7 @@ class PurchasesController < ApplicationController
   private
 
   def set_team
-    @team = current_user.team
+    @team = current_user.grouping_team
   end
 
   def set_purchase
