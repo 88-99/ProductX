@@ -47,7 +47,7 @@ class PurchasesController < ApplicationController
 
   def destroy
     @purchase.destroy
-    redirect_to edit_team_purchase_path(@team, @purchase.id), notice: "仕入を削除しました！"
+    redirect_to team_purchases_path(@team), notice: "仕入を削除しました！"
   end
 
   def detail_destroy
