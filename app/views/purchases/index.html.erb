@@ -13,8 +13,8 @@
       <td><%= pc.id %></td>
       <td><%= pc.date_at %></td>
       <td><%= Supplier.find(pc.supplier_id).name %></td>
-      <td><%= link_to '編集', edit_purchase_path(pc.id), class: "btn btn-success" %></td>
-      <td><%= link_to "削除", purchase_path(pc.id), method: :delete, class: "btn btn-danger" %></td>
+      <td><%= link_to '編集', edit_team_purchase_path(@team, pc.id), class: "btn btn-success" %></td>
+      <td><%= link_to "削除", team_purchase_path(@team, pc.id), method: :delete, class: "btn btn-danger" %></td>
     </tr>
   <% end %>
 </table>

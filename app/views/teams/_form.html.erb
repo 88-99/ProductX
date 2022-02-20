@@ -10,7 +10,6 @@
     </div>
   <% end %>
 
-  <strong>メンバーにご登録の方はこちらの<%= link_to 'メンバー専用', menu_member_path %>を押して、この画面をスキップしてください。</strong>
   <strong>チームのオーナー様はチームを作成してください。</strong>
   <strong>チームを作成すると、他のチームに所属することはできません。</strong>
 
@@ -24,3 +23,4 @@
   </div>
   <%= form.submit %>
 <% end %>
+<strong>チームメンバーの方: <%= link_to 'チーム作成のスキップ', menu_member_path %></strong>

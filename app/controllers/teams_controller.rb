@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
+  skip_before_action :restrict_member, only: %i[new create]
   before_action :set_team, only: %i[show edit update]
+
   def new
     @team = Team.new
   end
