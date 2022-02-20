@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when User
-      menus_path
+      if current_user.groupings.exists?
+        menus_path
+      else
+        new_team_path
+      end
     when Admin
       menus_path
     end

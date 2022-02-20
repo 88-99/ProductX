@@ -27,7 +27,7 @@ class GroupingsController < ApplicationController
     @grouping = @team.groupings.find_by(user_id: @user)
     unless @team.chief == @user.id
       @grouping.destroy
-      redirect_to team_path(@team.id), notice:"メンバーを削除しました！"
+      redirect_to new_team_path, notice:"メンバーを削除しました！"
     else
       redirect_to team_path(@team.id), notice:"チームのオーナーは削除できません。"
     end
