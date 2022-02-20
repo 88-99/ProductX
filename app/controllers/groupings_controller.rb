@@ -6,9 +6,10 @@ class GroupingsController < ApplicationController
   end
 
   def create
-    @team = Team.find(current_user.team.id)
     @user = User.find_by(email: params[:grouping][:email])
-    unless @team.groupings.find_by(user_id: @user).present?
+    @team = Team.find(current_user.team.id)  
+    unless Grouping.find_by(user_id: @user).present?  
+    # unless @team.groupings.find_by(user_id: @user).present?
       if @user.present?
         @grouping = @user.groupings.build(team_id: @team.id)
         @grouping.save
@@ -17,7 +18,7 @@ class GroupingsController < ApplicationController
         redirect_to new_team_grouping_path(params[:team_id]), notice: "#{params[:grouping][:email]}はユーザ登録されていないので、メンバーに追加できません。"        
       end      
     else
-      redirect_to new_team_grouping_path(params[:team_id]), notice: "#{@user.name}は既にメンバー登録されています。"      
+      redirect_to new_team_grouping_path(params[:team_id]), notice: "#{@user.name}は既にチームに所属していますので、追加できません。"      
     end
   end
 
