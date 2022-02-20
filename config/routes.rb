@@ -8,16 +8,15 @@ Rails.application.routes.draw do
   get '/menu_member', to: 'menus#show'
   get 'stocks/show'
 
-  resources :sales do
-    member do
-      delete 'detail_destroy'
-    end
-  end
-
   resources :teams do
     resources :groupings
     resources :products
     resources :purchases do
+      member do
+        delete 'detail_destroy'
+      end
+    end
+    resources :sales do
       member do
         delete 'detail_destroy'
       end
