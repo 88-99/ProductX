@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   private
 
   def set_team
-    @team = current_user.team
+    @team = Team.find(params[:team_id])
   end
 
   def set_product
