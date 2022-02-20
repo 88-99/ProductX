@@ -8,14 +8,12 @@ class PurchasesController < ApplicationController
   end
 
   def new
-    # @team.purchase.build
     @purchase = @team.purchases.build
     # @purchase = Purchase.new
     # @purchase.team_id = current_user.grouping_team[0].id
     # @purchase = current_user.grouping_team.purchase.build
     1.times { @purchase.purchase_details.build }
     @products = @team.products
-    # @products = Product.where(user_id: current_user.id)
   end
 
   def create
