@@ -46,6 +46,6 @@ class TeamsController < ApplicationController
   end   
 
   def set_team
-    @team = current_user.team
+    @team = current_user.grouping_team.last
   end
 end
