@@ -1,15 +1,16 @@
 class SalesController < ApplicationController
+  before_action :set_team
   before_action :set_sale, only: %i[ edit update destroy detail_destroy ]
   before_action :set_sale_detail, only: %i[ detail_destroy ]
 
   def index
-    @sales = Sale.all # .order(created_at: :desc)
+    @sales = @team.sales.all # .order(created_at: :desc)
   end
 
   def new
-    @sale = Sale.new
+    @sale = @team.sales.build
     1.times { @sale.sale_details.build }
-    @products = Product.where(user_id: current_user.id)
+    @products = @team.products
   end
 
   def create
@@ -33,7 +34,7 @@ class SalesController < ApplicationController
 
   def update    
     if @sale.update(sale_params)
-      redirect_to edit_sale_path(@sale.id), notice: "売上を編集しました！"
+      redirect_to edit_team_sale_path(@team, @sale.id), notice: "売上を編集しました！"
     else
       render :edit
     end
@@ -41,15 +42,21 @@ class SalesController < ApplicationController
 
   def destroy
     @sale.destroy
-    redirect_to sales_path, notice: "売上を削除しました！"
+    redirect_to team_sales_path(@team), notice: "売上を削除しました！"
   end
 
   def detail_destroy
     @sale_detail.destroy
-    redirect_to edit_sale_path(@sale.id), notice: "商品を削除しました！"
+    redirect_to edit_team_sale_path(@team, @sale.id), notice: "商品を削除しました！"
   end
 
   private
+
+  def set_team
+    # @team = current_user.grouping_team
+    @team = Team.find(params[:team_id])
+  end
+
   def set_sale
     @sale = Sale.find(params[:id])
   end
