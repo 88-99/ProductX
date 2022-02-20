@@ -14,7 +14,8 @@ class PurchasesController < ApplicationController
     # @purchase.team_id = current_user.grouping_team[0].id
     # @purchase = current_user.grouping_team.purchase.build
     1.times { @purchase.purchase_details.build }
-    @products = Product.where(user_id: current_user.id)
+    @products = @team.products
+    # @products = Product.where(user_id: current_user.id)
   end
 
   def create
@@ -30,11 +31,12 @@ class PurchasesController < ApplicationController
   end
   
   def edit
+    @products = @team.products
     @total_amount = 0
     @purchase.purchase_details.each {|detail| @total_amount += detail.quantity * detail.product.cost_price}
 
     @purchase.purchase_details.build
-    @products = Purchase.find(params[:id]).purchased_products
+    # @products = Purchase.find(params[:id]).purchased_products
   end
 
   def update
