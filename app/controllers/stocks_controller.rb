@@ -1,5 +1,6 @@
 class StocksController < ApplicationController
   def show
+    @team = Team.find(params[:team_id])
     @purchase_details = PurchaseDetail.where(product_id: params[:product_id])
     @sale_details = SaleDetail.where(product_id: params[:product_id])
     # sortに必要なdataはsaleとpurchaseそれぞれの親Modelのdate_atなので,下記のようにsort_byをうまく使う
