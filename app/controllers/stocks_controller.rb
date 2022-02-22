@@ -3,7 +3,10 @@ class StocksController < ApplicationController
     @team = Team.find(params[:team_id])
     @products = @team.products
     @stock_details = []
-
+  end
+  
+  def search
+    @team = Team.find(params[:team_id])
     if params[:team][:search_params].present?
       @purchase_details = PurchaseDetail.where(product_id: params[:team][:product_id])
       @sale_details = SaleDetail.where(product_id: params[:team][:product_id])

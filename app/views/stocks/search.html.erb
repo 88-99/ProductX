@@ -1,10 +1,5 @@
 <h4>在庫受払帳</h4>
-<%= form_with(model: @team, url: search_team_stocks_path, method: :get, local: true) do |form| %>
-  <%= form.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %>
-  <%= form.hidden_field :search_params, :value => true %>
-  <%= form.submit %>
-<% end %>
-
+<%= link_to "検索に戻る", team_stocks_path(@team) %>
 <table>
   <tr>
     <th>区分</th>
