@@ -4,7 +4,7 @@ User.seed do |s|
   s.email = "aaa@aaa.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "aaa@aaa.com"
+  s.phone_number = "09011110001"
   s.nickname = "aaa@aaa.com"
   s.admin = true
 end
@@ -14,7 +14,7 @@ User.seed do |s|
   s.email = "bbb@bbb.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "bbb@bbb.com"
+  s.phone_number = "09011110002"
   s.nickname = "bbb@bbb.com"
   s.admin = true
 end
@@ -24,7 +24,7 @@ User.seed do |s|
   s.email = "ccc@ccc.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "ccc@ccc.com"
+  s.phone_number = "09011110003"
   s.nickname = "ccc@ccc.com"
   s.admin = false
 end
@@ -34,7 +34,7 @@ User.seed do |s|
   s.email = "ddd@ddd.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "ddd@ddd.com"
+  s.phone_number = "09011110004"
   s.nickname = "ddd@ddd.com"
   s.admin = false
 end
@@ -44,7 +44,7 @@ User.seed do |s|
   s.email = "eee@eee.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "eee@eee.com"
+  s.phone_number = "09011110005"
   s.nickname = "eee@eee.com"
   s.admin = false
 end
@@ -54,7 +54,7 @@ User.seed do |s|
   s.email = "fff@fff.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "fff@fff.com"
+  s.phone_number = "09011110006"
   s.nickname = "fff@fff.com"
   s.admin = false
 end
@@ -64,23 +64,7 @@ User.seed do |s|
   s.email = "ggg@ggg.com"
   s.password = "aaaaaa"
   s.password_confirmation = "aaaaaa"
-  s.phone_number = "ggg@ggg.com"
+  s.phone_number = "09011110007"
   s.nickname = "ggg@ggg.com"
   s.admin = false
 end
-
-
-# 5 .times do |n|
-#   name = Faker::FunnyName.name
-#   email = Faker::Internet.email
-#   phone_number = Faker::PhoneNumber.phone_number
-#   nickname = Faker::Games::Pokemon.name
-#   @user = User.create!(name: name,
-#                email: email,
-#                password: "aaaaaa",
-#                password_confirmation: "aaaaaa",
-#                phone_number: phone_number,
-#                nickname: nickname,               
-#                admin: false
-#                )
-# end
