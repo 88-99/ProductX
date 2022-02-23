@@ -1,4 +1,4 @@
-<%= form_with(model: @product, local: true) do |form| %>
+<%= form_with(model: [@team, @product], local: true) do |form| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= @product.errors.count %>件のエラーがあります。</h2>

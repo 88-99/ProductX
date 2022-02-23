@@ -1,8 +1,9 @@
 class Purchase < ApplicationRecord
+  belongs_to :team
   belongs_to :supplier
   belongs_to :user
   has_many :purchase_details, dependent: :destroy
-  has_many :purchased_products, through: :purchase_details, source: :product
+  # has_many :purchased_products, through: :purchase_details, source: :product
   accepts_nested_attributes_for :purchase_details,
                                  reject_if: :reject_purchase_details,
                                  allow_destroy: true

@@ -1,4 +1,4 @@
-<%= form_with(model: @purchase, local: true) do |form| %>
+<%= form_with(model: [@team, @purchase], local: true) do |form| %>
   <% if @purchase.errors.any? %>
     <div id="error_explanation">
       <h2><%= @purchase.errors.count %>件のエラーがあります。</h2>
@@ -30,7 +30,7 @@
       <p>商品<%= "#{pd.index+1}" %></p>
     </strong>
 
-    <%= pd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
+    <%= pd.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
 
     <div class="pd_quantity">
       <%= pd.label :個数 %>
@@ -55,7 +55,7 @@
     <% end %>
 
     <% if action_name != "new" && !pd.object.id.nil? %>
-      <%= link_to "商品#{pd.index+1}を削除", detail_destroy_purchase_path(purchase_detail_id: pd.object.id), method: :delete %>
+      <%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase_path(purchase_detail_id: pd.object.id), method: :delete %>
     <% end %>
   <% end %>
   

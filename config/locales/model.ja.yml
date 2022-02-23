@@ -28,9 +28,8 @@ ja:
         regular_price: 標準価格
         selling_price: 売価
         cost_price: 原価
-      purchase_detail:
-        quantity: 数量  
-      purchase/purchase_details:        
+      purchase/purchase_details:
+        quantity: 数量
         product: 商品
       purchase:
         date_at: 仕入日
@@ -49,7 +48,8 @@ ja:
         total: 合計金額
         client_name: 得意先名
         client: 得意先
-      sale/sale_details:        
+      sale/sale_details:
+        quantity: 数量       
         product: 商品
       supplier:
         name: 仕入先名

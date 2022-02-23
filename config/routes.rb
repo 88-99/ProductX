@@ -5,21 +5,26 @@ Rails.application.routes.draw do
 
   root 'tops#index'
   get '/menus', to: 'menus#index' # 「get 'menus/index'」-> menus_index_pathになる
-  get 'stocks/show'
-
-  resources :purchases do
-    member do
-      delete 'detail_destroy'
-    end
-  end
-  resources :sales do
-    member do
-      delete 'detail_destroy'
-    end
-  end
+  get '/menu_member', to: 'menus#show'
 
   resources :teams do
     resources :groupings
+    resources :products
+    resources :stocks, only: %i[index] do
+      collection do
+        get 'search'
+      end
+    end
+    resources :purchases do
+      member do
+        delete 'detail_destroy'
+      end
+    end
+    resources :sales do
+      member do
+        delete 'detail_destroy'
+      end
+    end
   end
 
   resources :questions do
@@ -28,7 +33,6 @@ Rails.application.routes.draw do
 
   resources :suppliers
   resources :clients
-  resources :products
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',

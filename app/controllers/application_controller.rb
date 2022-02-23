@@ -2,11 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_action :authenticate_user!, if: :use_auth?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :restrict_member
 
   def after_sign_in_path_for(resource)
     case resource
     when User
-      menus_path
+      if current_user.groupings.exists?
+        menus_path
+      else
+        new_team_path
+      end
     when Admin
       menus_path
     end
@@ -34,6 +39,13 @@ class ApplicationController < ActionController::Base
   def use_auth?
     unless controller_name == "tops" && action_name == "index"
       true
+    end
+  end
+
+  def restrict_member
+    if current_user.try!(:grouping_team).nil?
+    # unless !current_user.present? && current_user.try!(:grouping_team).present?
+      redirect_to menu_member_path, notice: "チームに所属してください。"
     end
   end
 end

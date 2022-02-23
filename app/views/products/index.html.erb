@@ -1,6 +1,6 @@
 <h1>商品一覧</h1>
 <p><%= notice %></p>
-<%= link_to '新規登録', new_product_path %>
+<%= link_to '新規登録', new_team_product_path(@team) %>
 
 <table>
   <tr>
@@ -17,7 +17,7 @@
       <td><%= p.selling_price.to_i.to_s(:delimited) %></td>
       <td><%= p.cost_price.to_i.to_s(:delimited) %></td>
       <td><%= p.regular_price.to_i.to_s(:delimited) %></td>
-      <td><%= link_to '編集', edit_product_path(p.id) %></td>      
+      <td><%= link_to '編集', edit_team_product_path(@team, p.id) %></td>      
     </tr>
   <% end %>
 </table>

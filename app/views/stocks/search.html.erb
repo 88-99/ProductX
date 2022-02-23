@@ -1,0 +1,33 @@
+<h4>在庫受払帳</h4>
+<%= link_to "検索に戻る", team_stocks_path(@team) %>
+<table>
+  <tr>
+    <th>区分</th>
+    <th>日付</th>
+    <th>企業名</th>
+    <th>数量</th>
+    <th>単価</th>
+    <th>在庫</th>
+  </tr>
+  <% amount = 0 %>
+  <% @stock_details.each do | stock_detail | %>
+    <tr>
+      <% if stock_detail.try(:sale).nil? %>
+        <td><%= "仕入：" %>
+        <td><%= stock_detail.date_at_of_purchase_or_sale %></td>
+        <td><%= stock_detail.name_of_purchase_or_sale %></td>
+        <td><%= "#{stock_detail.quantity}" %></td>
+        <td><%= "#{stock_detail.price_of_purchase_or_sale}" %></td>
+        <td><%= "#{amount += stock_detail.quantity}" %></td>
+      <% else %>
+        <td><%= "売上：" %>
+        <td><%= stock_detail.date_at_of_purchase_or_sale %></td>
+        <td><%= stock_detail.name_of_purchase_or_sale %></td>
+        <td><%= "#{stock_detail.quantity}" %></td>
+        <td><%= "#{stock_detail.price_of_purchase_or_sale}" %></td>
+        <td><%= "#{amount -= stock_detail.quantity}" %></td>
+      <% end %>      
+    </tr>
+  <% end %>
+</table>
+<%= link_to "メインメニュー", menus_path %>

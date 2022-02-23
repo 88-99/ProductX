@@ -3,11 +3,6 @@ class SuppliersController < ApplicationController
 
   def index
     @suppliers = Supplier.all # .order(created_at: :desc)
-    # @tasks = @tasks.order_tasks if params[:sort_expired].present?
-    # @tasks = @tasks.order_priorities if params[:sort_priority].present?
-    # @tasks = @tasks.search_title(params[:title]) if params[:title].present?
-    # @tasks = @tasks.search_status(params[:status]) if params[:status].present?
-    # @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   def new
@@ -15,7 +10,7 @@ class SuppliersController < ApplicationController
   end
 
   def create
-      @supplier = current_user.team.suppliers.build(supplier_params)
+      @supplier = current_user.grouping_team.last.suppliers.build(supplier_params)
     # @supplier = Supplier.new(supplier_params)
     # @supplier.user_id = current_user.id
     if @supplier.save
