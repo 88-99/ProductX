@@ -8,7 +8,7 @@ class GroupingsController < ApplicationController
   def create
     @user = User.find_by(email: params[:grouping][:email])
     @team = Team.find(current_user.team.id)  
-    unless Grouping.find_by(user_id: @user).present?  
+    unless Grouping.find_by(user_id: @user).present?
     # unless @team.groupings.find_by(user_id: @user).present?
       if @user.present?
         @grouping = @user.groupings.build(team_id: @team.id)
