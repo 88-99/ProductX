@@ -34,23 +34,23 @@
 
     <div class="pd_quantity">
       <%= pd.label :個数 %>
-      <%= pd.text_field :quantity %>
+      <p><%= pd.number_field :quantity %>個</p>
     </div>
   
     <div class="cost_price">
       <%= pd.label :原価 %>
-      <%= pd.object.product.cost_price.to_i.to_s(:delimited) if pd.object.id.present?%>
+      <p><%= pd.object.product.cost_price.to_i.to_s(:delimited) if pd.object.id.present?%>円</p>
     </div>
 
     <div class="regular_price">
       <%= pd.label :定価 %>
-      <%= pd.object.product.regular_price.to_i.to_s(:delimited) if pd.object.id.present? %>
+      <p><%= pd.object.product.regular_price.to_i.to_s(:delimited) if pd.object.id.present? %>円</p>
     </div>
 
     <% if pd.object.id.present? %>
       <div class="detail_total">
         <%= pd.label :商品合計 %>
-        <%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>
+        <p><%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>円</p>
       </div>
     <% end %>
 
@@ -61,7 +61,7 @@
   
   <div class="total_amount">
       <%= form.label :合計金額 %>
-      <%= @total_amount.to_i.to_s(:delimited) %><p>円</p>
+      <p><%= @total_amount.to_i.to_s(:delimited) %><p>円</p>
   </div>
 
   <%= form.submit %>

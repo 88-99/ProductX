@@ -34,23 +34,23 @@
 
     <div class="sd_quantity">
       <%= sd.label :個数 %>
-      <%= sd.text_field :quantity %>
+      <p><%= sd.number_field :quantity, placeholder: "数字を入力" %>個<p/>
     </div>
   
     <div class="selling_price">
       <%= sd.label :単価 %>
-      <%= sd.object.product.selling_price.to_i.to_s(:delimited) if sd.object.id.present?%>
+      <p><%= sd.object.product.selling_price.to_i.to_s(:delimited) if sd.object.id.present?%>円</p>
     </div>
 
     <div class="regular_price">
       <%= sd.label :定価 %>
-      <%= sd.object.product.regular_price.to_i.to_s(:delimited) if sd.object.id.present? %>
+      <p><%= sd.object.product.regular_price.to_i.to_s(:delimited) if sd.object.id.present? %>円</p>
     </div>
 
     <% if sd.object.id.present? %>
       <div class="detail_total">
         <%= sd.label :商品合計 %>
-        <%= (sd.object.quantity * sd.object.product.selling_price).to_i.to_s(:delimited) %>
+        <p><%= (sd.object.quantity * sd.object.product.selling_price).to_i.to_s(:delimited) %>円</p>
       </div>
     <% end %>
 
@@ -61,7 +61,7 @@
 
   <div class="total_amount">
       <%= form.label :合計金額 %>
-      <%= @total_amount.to_i.to_s(:delimited) %><p>円</p>
+      <p><%= @total_amount.to_i.to_s(:delimited) %>円</p>
   </div>
 
   <%= form.submit %>
