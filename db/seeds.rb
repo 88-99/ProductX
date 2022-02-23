@@ -1,17 +1,17 @@
-# 5 .times do |n|
-#   name = Faker::FunnyName.name
-#   email = Faker::Internet.email
-#   phone_number = Faker::PhoneNumber.phone_number
-#   nickname = Faker::Games::Pokemon.name
-#   @user = User.create!(name: name,
-#                email: email,
-#                password: "aaaaaa",
-#                password_confirmation: "aaaaaa",
-#                phone_number: phone_number,
-#                nickname: nickname,               
-#                admin: false
-#                )
-# end
+5 .times do |n|
+  name = Faker::FunnyName.name
+  email = Faker::Internet.email
+  phone_number = Faker::PhoneNumber.phone_number
+  nickname = Faker::Games::Pokemon.name
+  @user = User.create!(name: name,
+               email: email,
+               password: "aaaaaa",
+               password_confirmation: "aaaaaa",
+               phone_number: phone_number,
+               nickname: nickname,               
+               admin: false
+               )
+end
 
 
 # 5.times do |n|
