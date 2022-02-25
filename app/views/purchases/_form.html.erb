@@ -26,11 +26,12 @@
   </div>
 
   <div class="detail_form">
-  <%= form.fields_for :purchase_details do |pd| %>
-    <strong>
-      <p>商品<%= "#{pd.index+1}" %></p>
-    </strong>
-    <%= pd.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
+    <%= form.fields_for :purchase_details do |pd| %>
+      <hr>
+      <strong>
+        <p>商品<%= "#{pd.index+1}" %></p>
+      </strong>
+    <%= pd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
   </div>
 
     <div class="detail_form">
@@ -49,18 +50,19 @@
     </div>
 
     <div class="purchase_price">
-    <% if pd.object.id.present? %>
-        <%= pd.label :商品合計 %>
-        <p><%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>円</p>
-    <% end %>
+      <% if pd.object.id.present? %>
+          <%= pd.label :商品合計 %>
+          <p><%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>円</p>
+      <% end %>
     </div>
 
     <div class="detail_destroy">
-    <% if action_name != "new" && !pd.object.id.nil? %>
-      <p><%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase_path(purchase_detail_id: pd.object.id), method: :delete %></p>
-    <% end %>
+      <% if action_name != "new" && !pd.object.id.nil? %>
+        <p><%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase_path(purchase_detail_id: pd.object.id), method: :delete %></p>
+      <% end %>
     </div>
   <% end %>
+  <hr>
   
   <div class="total_amount">
       <%= form.label :合計金額 %>

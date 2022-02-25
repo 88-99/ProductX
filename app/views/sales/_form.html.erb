@@ -10,54 +10,58 @@
     </div>
   <% end %>
   
-  <div class="sale_date_at">
+  <div class="sale_form">
     <%= form.label :date_at %>
     <%= form.date_field :date_at, placeholder: "売上日" %>
   </div>
 
-  <div class="sale_client_name">
+  <div class="sale_form">
     <%= form.label :client_name %>
     <%= form.collection_select(:client_id, Client.all, :id, :name, prompt: "選択してください") %>
   </div>
 
-  <div class="sale_inputter">
+  <div class="sale_form">
     <p>入力者:<%= current_user.name %></p>
     <%= form.hidden_field :inputter, value: current_user.id %> <!-- パラメータで入力者のidを渡すため。-->
   </div>
-
-  <%= form.fields_for :sale_details do |sd| %>
-    <strong>
-      <p>商品<%= "#{sd.index+1}" %></p>
-    </strong>
-
+  
+  <div class="detail_form">
+    <%= form.fields_for :sale_details do |sd| %>
+      <hr>
+      <strong>
+        <p>商品<%= "#{sd.index+1}" %></p>
+      </strong>
     <%= sd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
-
-    <div class="sd_quantity">
-      <%= sd.label :個数 %>
+      
+    <div class="detail_form">
+      <p><%= sd.label :個数 %></p>
       <p><%= sd.number_field :quantity, placeholder: "数字を入力" %>個<p/>
     </div>
   
-    <div class="selling_price">
+    <div class="sale_price">
       <%= sd.label :単価 %>
       <p><%= sd.object.product.selling_price.to_i.to_s(:delimited) if sd.object.id.present?%>円</p>
     </div>
 
-    <div class="regular_price">
+    <div class="sale_price">
       <%= sd.label :定価 %>
       <p><%= sd.object.product.regular_price.to_i.to_s(:delimited) if sd.object.id.present? %>円</p>
     </div>
 
-    <% if sd.object.id.present? %>
-      <div class="detail_total">
+    <div class="sale_price">
+      <% if sd.object.id.present? %>
         <%= sd.label :商品合計 %>
         <p><%= (sd.object.quantity * sd.object.product.selling_price).to_i.to_s(:delimited) %>円</p>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
-    <% if action_name != "new" && !sd.object.id.nil? %>
-      <%= link_to "商品#{sd.index+1}を削除", detail_destroy_team_sale_path(sale_detail_id: sd.object.id), method: :delete %>
-    <% end %>  
+    <div class="detail_destroy">
+      <% if action_name != "new" && !sd.object.id.nil? %>
+        <p><%= link_to "商品#{sd.index+1}を削除", detail_destroy_team_sale_path(sale_detail_id: sd.object.id), method: :delete %></p>
+      <% end %>  
+    </div>
   <% end %>
+  <hr>
 
   <div class="total_amount">
       <%= form.label :合計金額 %>
