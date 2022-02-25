@@ -9,30 +9,39 @@
       </ul>
     </div>
   <% end %>
-  <div class="product_code">
+  <div class="product_form">
     <%= form.label :code %>
     <%= form.text_field :code, placeholder: "商品コード 半角入力" %>
   </div>
-  <div class="product_name">
+
+  <div class="product_form">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "商品名" %>
   </div>
-  <div class="product_regular_price">
+
+  <div class="">
+  </div>
+
+  <div class="product_price">
     <%= form.label :regular_price %> 
     <p><%= form.number_field :regular_price, placeholder: "標準価格" %>円</p>
   </div>
-  <div class="product_selling_price">
+
+  <div class="product_price">
     <%= form.label :selling_price %>
     <p><%= form.number_field :selling_price, placeholder: "売価" %>円</p>
   </div>
-  <div class="product_cost_price">
+
+  <div class="product_price">
     <%= form.label :cost_price %>
     <p><%= form.number_field :cost_price, placeholder: "原価" %>円</p>
   </div>
+
   <div class="product_remarks">
     <%= form.label :remarks %>
     <%= form.text_field :remarks, placeholder: "備考" %>
   </div>
+  
   <%= form.submit %>
 <% end %>
 

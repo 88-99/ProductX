@@ -21,7 +21,7 @@
   </div>
 
   <div class="sale_form">
-    <p>入力者:<%= current_user.name %></p>
+    <p>入力者：<%= current_user.name %></p>
     <%= form.hidden_field :inputter, value: current_user.id %> <!-- パラメータで入力者のidを渡すため。-->
   </div>
   
