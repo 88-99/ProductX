@@ -10,53 +10,56 @@
     </div>
   <% end %>
   
-  <div class="purchase_date_at">
+  <div class="purchase_form">
     <%= form.label :date_at %>
     <%= form.date_field :date_at, placeholder: "仕入日" %>
   </div>
 
-  <div class="purchase_supplier_name">
+  <div class="purchase_form">
     <%= form.label :supplier_name %>
     <%= form.collection_select(:supplier_id, Supplier.all, :id, :name, prompt: "選択してください") %>
   </div>
 
-  <div class="purchase_inputter">
-    <p>入力者:<%= current_user.name %></p>
+  <div class="purchase_form">
+    <p>入力者：<%= current_user.name %></p>
     <%= form.hidden_field :inputter, value: current_user.id %> <!-- パラメータで入力者のidを渡すため。-->
   </div>
 
+  <div class="detail_form">
   <%= form.fields_for :purchase_details do |pd| %>
     <strong>
       <p>商品<%= "#{pd.index+1}" %></p>
     </strong>
-
     <%= pd.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
+  </div>
 
-    <div class="pd_quantity">
-      <%= pd.label :個数 %>
+    <div class="detail_form">
+      <p><%= pd.label :個数 %></p>
       <p><%= pd.number_field :quantity %>個</p>
     </div>
   
-    <div class="cost_price">
+    <div class="purchase_price">
       <%= pd.label :原価 %>
       <p><%= pd.object.product.cost_price.to_i.to_s(:delimited) if pd.object.id.present?%>円</p>
     </div>
 
-    <div class="regular_price">
+    <div class="purchase_price">
       <%= pd.label :定価 %>
       <p><%= pd.object.product.regular_price.to_i.to_s(:delimited) if pd.object.id.present? %>円</p>
     </div>
 
+    <div class="purchase_price">
     <% if pd.object.id.present? %>
-      <div class="detail_total">
         <%= pd.label :商品合計 %>
         <p><%= (pd.object.quantity * pd.object.product.cost_price).to_i.to_s(:delimited) %>円</p>
-      </div>
     <% end %>
+    </div>
 
+    <div class="detail_destroy">
     <% if action_name != "new" && !pd.object.id.nil? %>
-      <%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase_path(purchase_detail_id: pd.object.id), method: :delete %>
+      <p><%= link_to "商品#{pd.index+1}を削除", detail_destroy_team_purchase_path(purchase_detail_id: pd.object.id), method: :delete %></p>
     <% end %>
+    </div>
   <% end %>
   
   <div class="total_amount">
