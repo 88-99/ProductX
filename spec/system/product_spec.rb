@@ -3,14 +3,13 @@ RSpec.describe '商品登録機能', type: :system do
 
   before do
     user = FactoryBot.create(:user, :a)
+    visit new_user_session_path
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'ログイン'
     @team = FactoryBot.create(:team, user: user)
     @product = FactoryBot.create(:product, user: user, team: @team)
     @second_product = FactoryBot.create(:second_product, user: user, team: @team)
-    visit new_user_session_path
-    fill_in :user_email, with: user.email
-    fill_in :user_password, with: user.password
-    click_button 'ログイン'
-    
   end
 
   describe '新規作成機能' do
