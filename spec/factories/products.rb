@@ -8,7 +8,7 @@ FactoryBot.define do
   end
 
   factory :second_product, class: Product do
-    code {Faker::Food.fruits}
+    code {Faker::Number.number(digits: 10)}
     name {'Factoryで作った商品２'}
     regular_price { 400 }
     selling_price { 300 }
