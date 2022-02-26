@@ -1,27 +1,36 @@
-# require 'rails_helper'
-# RSpec.describe '仕入登録機能', type: :system do
+require 'rails_helper'
+RSpec.describe '仕入登録機能', type: :system do
 
-#   before do
-#     
-#   end
+  before do
+    user = FactoryBot.create(:user, :a)
+    @team = FactoryBot.create(:team, user: user)
+    @grouping = Grouping.create(user_id: user.id, team_id: @team.id)
+    @supplier = Supplier.create(name: "サプライヤー")
+    @product = FactoryBot.create(:product, user: user, team: @team)        
+    @second_product = FactoryBot.create(:second_product, user: user, team: @team)
+    visit new_user_session_path
+    fill_in :user_email, with: user.email
+    fill_in :user_password, with: user.password
+    click_button 'ログイン'
+  end
 
   describe '新規作成機能' do
     context '仕入を新規登録した場合' do
       it '登録後の画面で選んだ商品が表示される' do
-        user = FactoryBot.create(:user, :a)
-        @team = FactoryBot.create(:team, user: user)
-        @grouping = Grouping.create(user_id: user.id, team_id: @team.id)
-        @supplier = Supplier.create(name: "サプライヤー")
-        @product = FactoryBot.create(:product, user: user, team: @team)        
-        @second_product = FactoryBot.create(:second_product, user: user, team: @team)
-        visit new_user_session_path
-        fill_in :user_email, with: user.email
-        fill_in :user_password, with: user.password
-        click_button 'ログイン'
+        # user = FactoryBot.create(:user, :a)
+        # @team = FactoryBot.create(:team, user: user)
+        # @grouping = Grouping.create(user_id: user.id, team_id: @team.id)
+        # @supplier = Supplier.create(name: "サプライヤー")
+        # @product = FactoryBot.create(:product, user: user, team: @team)        
+        # @second_product = FactoryBot.create(:second_product, user: user, team: @team)
+        # visit new_user_session_path
+        # fill_in :user_email, with: user.email
+        # fill_in :user_password, with: user.password
+        # click_button 'ログイン'
         visit new_team_purchase_path(@team)
         fill_in :purchase_date_at, with: '002022-02-02'
         select 'サプライヤー', from: 'purchase[supplier_id]'        
-        click_button '登録する'        
+        click_button '登録する'
         expect(page).to have_content '登録しました'
       end
     end
@@ -50,4 +59,4 @@
 # #       end
 # #     end
 # #   end
-# end
+end
