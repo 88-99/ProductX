@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    code {'FactoryProduct1'}
+    code {Faker::Camera.brand}
     name {'Factoryで作った商品１'}
     regular_price { 300 }
     selling_price { 200 }
@@ -8,7 +8,7 @@ FactoryBot.define do
   end
 
   factory :second_product, class: Product do
-    code {'FactoryProduct2'}
+    code {Faker::Camera.brand}
     name {'Factoryで作った商品２'}
     regular_price { 400 }
     selling_price { 300 }
