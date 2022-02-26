@@ -1,5 +1,5 @@
-require 'rails_helper'
-RSpec.describe 'ユーザー機能', type: :system do
+# require 'rails_helper'
+# RSpec.describe 'ユーザー機能', type: :system do
 
   # before do
   #   @user = FactoryBot.create(:user, :a)
@@ -33,7 +33,7 @@ RSpec.describe 'ユーザー機能', type: :system do
 #         expect(page).to have_content 'ログイン'
 #       end
 #     end
-  end
+  # end
 
 #   describe 'セッション機能' do
 #     context 'ログインした場合' do
