@@ -7,7 +7,7 @@
 #       @grouping = Grouping.create(user_id: user.id, team_id: @team.id)
 #       @supplier = Supplier.create(name: 'サプライヤー')
 #       # @supplier = FactoryBot.create(:supplier) エラーの為、後で修正
-#       @product = FactoryBot.create(:product, user: user, team: @team)        
+#       @product = FactoryBot.create(:product, user: user, team: @team)
 #       @second_product = FactoryBot.create(:second_product, user: user, team: @team)
 #       @purchase = FactoryBot.create(:purchase, user_id: user.id, team_id: @team.id)
 #       @second_purchase = FactoryBot.create(:second_purchase, user_id: user.id, team_id: @team.id)
@@ -21,7 +21,7 @@
 #         visit new_team_purchase_path(@team)
 #         fill_in :purchase_date_at, with: '002022-02-02'
 #         select 'サプライヤー', from: 'purchase[supplier_id]'
-#         select 'Factoryで作った商品１', from: 'purchase[purchase_details_attributes][0][product_id]' 
+#         select 'Factoryで作った商品１', from: 'purchase[purchase_details_attributes][0][product_id]'
 #         fill_in :purchase_purchase_details_attributes_0_quantity, with: '1000'
 #         click_button '登録する'
 #         expect(page).to have_content 'Factoryで作った商品１' && '合計金額 100,000円'
@@ -34,7 +34,7 @@
 #       @team = FactoryBot.create(:team, user: user)
 #       @grouping = Grouping.create(user_id: user.id, team_id: @team.id)
 #       @supplier = FactoryBot.create(:supplier)
-#       @product = FactoryBot.create(:product, user: user, team: @team)        
+#       @product = FactoryBot.create(:product, user: user, team: @team)
 #       @second_product = FactoryBot.create(:second_product, user: user, team: @team)
 #       @purchase = FactoryBot.create(:purchase, user_id: user.id, team_id: @team.id)
 #       @second_purchase = FactoryBot.create(:second_purchase, user_id: user.id, team_id: @team.id)
