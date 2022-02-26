@@ -8,7 +8,6 @@ class Purchase < ApplicationRecord
                                  reject_if: :reject_purchase_details,
                                  allow_destroy: true
   validates :date_at,  presence: true
-  validates :inputter,  presence: true
 
   def reject_purchase_details(attributes)
     exists = attributes[:product_id].present?
