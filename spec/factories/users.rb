@@ -19,5 +19,15 @@ FactoryBot.define do
       password { "bbbbbb" }
       admin { false }
     end
+
+    trait :c do
+      name { "factory_user_ccc" }
+      email { Faker::Internet.free_email }
+      # sequence(:email) { |n| "tama#{n}@cat.com" }
+      phone_number { Faker::PhoneNumber.cell_phone_in_e164 }
+      nickname { Faker::Name.name }
+      password { "bbbbbb" }
+      admin { true }
+    end
   end
 end
