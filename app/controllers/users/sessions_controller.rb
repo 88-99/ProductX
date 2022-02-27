@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   skip_before_action :restrict_member, only: %i[new create destroy guest_sign_in admin_guest_sign_in]
+  skip_before_action :login_required, only: %i[new create destroy guest_sign_in admin_guest_sign_in]
   def guest_sign_in
     user = User.guest
     sign_in user

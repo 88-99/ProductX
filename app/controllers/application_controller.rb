@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  before_action :authenticate_user!, if: :use_auth?
+  protect_from_forgery with: :exception
+  before_action :login_required, if: :use_auth?
+  # before_action :authenticate_user!, if: :use_auth?
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :restrict_member
 
@@ -28,12 +29,9 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  def configure_permitted_parameters
-    # サインアップ時にnameのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone_number, :nickname])
-    # deviseのUserモデルに関わるログインや新規登録などのリクエストからパラメーターを取得できるようになるメソッド
-    # アカウント編集の時にnameとprofileのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :phone_number, :nickname])
+
+  def login_required
+    redirect_to root_path unless user_signed_in?
   end
 
   def use_auth?
@@ -43,9 +41,17 @@ class ApplicationController < ActionController::Base
   end
 
   def restrict_member
-    if current_user.try!(:grouping_team).nil?
+    if !user_signed_in? && current_user.try!(:grouping_team).nil?
     # unless !current_user.present? && current_user.try!(:grouping_team).present?
       redirect_to menu_member_path, notice: "チームに所属してください。"
     end
+  end
+
+  def configure_permitted_parameters
+    # サインアップ時にnameのストロングパラメータを追加
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :phone_number, :nickname])
+    # deviseのUserモデルに関わるログインや新規登録などのリクエストからパラメーターを取得できるようになるメソッド
+    # アカウント編集の時にnameとprofileのストロングパラメータを追加
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :phone_number, :nickname])
   end
 end

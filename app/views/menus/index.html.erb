@@ -1,13 +1,18 @@
 <h4>メインメニュー</h4>
-<%= link_to '売上登録', new_team_sale_path(team_id: @team[0].id) %>
-<%= link_to '仕入登録', new_team_purchase_path(team_id: @team[0].id) %>
-<%= link_to '在庫受払帳', team_stocks_path(team_id: @team[0].id) %>
-<%= link_to '商品登録', team_products_path(team_id: @team[0].id)%>
-<%= link_to '得意先登録', clients_path %>
-<%= link_to '仕入先登録', suppliers_path %>
+<%= link_to '売上登録', new_team_sale_path(team_id: @team[0].id) %><p>：商品の販売記録を扱います。</p></br>
+<%= link_to '仕入登録', new_team_purchase_path(team_id: @team[0].id) %><p>：商品の購入記録を扱います。</p></br>
+<%= link_to '在庫受払帳', team_stocks_path(team_id: @team[0].id) %><p>：特定の商品を選択して、その商品の購入・販売履歴と在庫数の推移を確認できます。</p></br>
+<%= link_to '商品登録', team_products_path(team_id: @team[0].id)%><p>：購入・販売する商品を登録します。</p></br>
+<%= link_to '得意先登録', clients_path %><p>：商品の販売先を登録します。</p></br>
+<%= link_to '仕入先登録', suppliers_path %><p>：商品の購入先を登録します。</p></br>
 <%#= link_to '質問と回答', questions_path %>
 <% if !current_user.groupings.exists? %>
-  <%= link_to 'チーム登録', new_team_path %>
+  <%= link_to 'チーム登録', new_team_path %><p>：複数メンバーで使用するためにチームを登録します。</p>
 <% else %>
-  <%= link_to 'メンバー一覧画面', team_path(current_user.grouping_team) %>
+  <%= link_to 'メンバー一覧画面', team_path(current_user.grouping_team) %><p>：チームに所属しているメンバーを確認できます。</p>
 <% end %>
+
+<p>【ご利用方法】</p>
+<p>①：ユーザはまず「商品登録」へ進み、新規登録画面から商品を登録してください。</p>
+<p>②：次に、「仕入先登録」または「得意先登録」の画面に進み、</br>商品を購入したときの仕入先、商品を販売するときの得意先を、新規登録画面から登録してください。</p>
+<p>③：①と②を登録すると、売上と仕入を登録することができるようになります。</p>

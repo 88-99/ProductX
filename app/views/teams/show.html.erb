@@ -1,5 +1,5 @@
 <h4>メンバーのページ</h4>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>名前</th>
@@ -11,7 +11,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to "削除する", team_grouping_path(team_id: @team.id, user_id: user), method: :delete, class: "btn btn-danger" %></td>
+        <!--<td><%#= link_to "削除する", team_grouping_path(team_id: @team.id, user_id: user), method: :delete, class: "btn btn-danger" %></td>-->
       </tr>
     <% end %>
   </tbody>

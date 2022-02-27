@@ -1,3 +1,14 @@
 // Place all the styles related to the purchases controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.purchase_form {
+  display: inline-block;
+}
+.detail_destroy p {
+  margin-bottom: -20px;
+}
+.purchase_price {
+  display: inline-block;
+  margin-bottom: -10px;
+}

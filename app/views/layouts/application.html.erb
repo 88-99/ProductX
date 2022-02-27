@@ -19,7 +19,9 @@
           <% if user_signed_in? %>
             <a class="p-2 text-dark"><%= current_user.name %></a>
             <a class="p-2 text-dark" href="#"><%= link_to "トップページ", root_path %></a>
-            <a class="p-2 text-dark" href="#"><%= link_to "メインメニュー", menus_path %></a>
+            <% if current_user.groupings.exists? %> 
+              <a class="p-2 text-dark" href="#"><%= link_to "メインメニュー", menus_path %></a>
+            <% end %>
             <a class="p-2 text-dark" href="#"><%= link_to 'ユーザ管理画面', admin_users_path if current_user.admin %></a>
             <a class="p-2 text-dark" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %></a>
           <% else %>
@@ -36,7 +38,9 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       
-      <%= yield %>
+      <div class="bg_image">
+        <%= yield %>
+      </div>
       
       <!-- Footer-->
       <footer class="bg-dark py-4 mt-auto">

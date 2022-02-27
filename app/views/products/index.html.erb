@@ -2,13 +2,14 @@
 <p><%= notice %></p>
 <%= link_to '新規登録', new_team_product_path(@team) %>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>商品コード</th>
     <th>商品名</th>    
     <th>売価</th>
     <th>原価</th>
     <th>定価</th>
+    <th>編集</th>
   </tr>
   <% @products.each do |p| %>
     <tr>

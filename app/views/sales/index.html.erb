@@ -2,11 +2,13 @@
 <p><%= notice %></p>
 <%= link_to '新規登録', new_team_sale_path(@team) %>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>売上ID</th>
     <th>売上日</th>
     <th>得意先</th>
+    <th>編集</th>
+    <th>削除</th>
   </tr>
   <% @sales.each do |sl| %>
     <tr>

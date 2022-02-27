@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :grouping_team,through: :groupings, source: :team
   has_many :products
   has_many :questions
+  validates :nickname, presence: true, uniqueness: true
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

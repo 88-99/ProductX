@@ -30,3 +30,6 @@ div p {
 .footer {
   margin-top: auto;
 }
+.bg_image {
+  background-image: url(./images/dandelions_bg.png); 
+}
