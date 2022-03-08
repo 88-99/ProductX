@@ -1,3 +1,28 @@
 // Place all the styles related to the menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+h4 {
+  text-align: center;
+}
+.box {
+  padding: 10px 10px 10px 10px;
+  margin: 10px 30px 10px 30px;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  background: #b1f098;/*背景色*/
+}
+.box p {
+  margin: 0; 
+  padding: 0;
+  text-align: center;
+}
+.main_menu {
+  margin-left: 100px;
+  display: flex;
+}
+.description p {
+  
+}
